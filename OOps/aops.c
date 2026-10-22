@@ -1865,6 +1865,14 @@ int32_t inch_opcode1(CSOUND *csound, INCH1 *p)
   return OK;
 }
 
+int32_t inall_set(CSOUND *csound, INALL *p)
+{
+  if (CS_ESR != csound->esr)
+    return csound->InitError(csound,
+                             Str("local sampling rate not supported\n"));
+  return OK;
+}
+
 int32_t inch_set(CSOUND *csound, INCH *p)
 {
   if(CS_ESR != csound->esr)
